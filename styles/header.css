@@ -1,0 +1,111 @@
+body{
+  font-family: Arial, sans-serif;
+  color:var(--white) ;
+  background-color: var(--black);
+}
+
+header{
+  margin: 10px 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo{
+  border-radius: 10px;
+  max-width: 200px;
+  height: auto;
+}
+@media (max-width: 768px) {
+  #logo{
+    max-width: 150px;
+  }
+}
+@media (max-width: 450px) {
+  #logo{
+    max-width: 120px;
+  }
+}
+.search-container{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  position: relative;
+}
+
+#search-input{
+  padding: 5px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: calc(36px / 2);
+  background-color: var(--black);
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+  &:focus{
+    outline: 1px white solid;
+  }
+}
+#search-button{
+  background-color: var(--black);
+  backdrop-filter: blur(5px);
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: calc(36px / 2);
+  position: absolute;
+  right:1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    opacity: 0.8;
+  }
+  &:active{
+    opacity: 0.5;
+  }
+
+}
+
+#search-img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 25px;
+  height: 25px;
+}
+
+.right-section{
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.library{
+  font-family: "Ubuntu", sans-serif;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: #232323;
+  }
+}
+.profile{
+  background-color: var(--black);
+  width: 36px;
+  height: 36px;
+  border-radius: calc(36px / 2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: #232323;
+  }
+}
