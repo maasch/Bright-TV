@@ -23,10 +23,10 @@ const noImage ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-
   fetch(urlMovie)
     .then(response => response.json())
     .then(data => {
-      data.results.forEach(item => {
+      data.results.forEach( item => {
         const papularItem = document.createElement('a');
         papularItem.classList.add('popular-item');
-        papularItem.href = `details.html?name=${item.title}&catagory=${item.media_type}`;
+        papularItem.href =`details.html?id=${item.id}&catagory=${item.media_type}`;
         const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage;
         papularItem.innerHTML = `
           <img src="${imageUrl}" alt="${item.title || item.name}">
@@ -44,10 +44,10 @@ const noImage ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-
   fetch(urlTv)
     .then(response => response.json())
     .then(data => {
-      data.results.forEach(item => {
+      data.results.forEach( item => {
         const papularItem = document.createElement('a');
         papularItem.classList.add('popular-item');
-        papularItem.href = `details.html?name=${item.title}&catagory=${item.media_type}`;
+        papularItem.href = `details.html?id=${item.id}&catagory=${item.media_type}`;
 
         const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage;
         papularItem.innerHTML = `
@@ -110,18 +110,10 @@ if (recentlyViewedArry.length > 0) {
     recentlyViewedArry.forEach(item => {
       const papularItem = document.createElement('a');
       papularItem.classList.add('popular-item');
-      papularItem.href = `details.html?name=${item.title || item.Title}&catagory=${item.media_type || item.Type}`;
-      let imageUrl;
-      if(item.poster_path){
-        imageUrl = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
-      }else if(item.Poster && item.Poster !== 'N/A'){
-        imageUrl = item.Poster;
-      }else{
-        imageUrl = noImage;
-      }
+      papularItem.href = `details.html?id=${item.id}&catagory=${item.media_type}`;
       papularItem.innerHTML =
        `
-        <img src="${imageUrl}" alt="${item.title || item.name}">
+        <img src="${item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage}" alt="${item.title || item.name}">
         <h3>${item.title || item.name}</h3>
       `;   
       recentlyViewedContainer.appendChild(papularItem);
@@ -136,45 +128,48 @@ if (recentlyViewedArry.length > 0) {
       const searchKey = searchInput.value.trim();
       if(!searchKey) return;
       searchdisplay(searchKey);
-      searchInput.value = '';
     })
 
 
     async function  searchdisplay(key){  
-      const omdbapikey ='e8961e48' ;
-      const url =`http://www.omdbapi.com?apikey=${omdbapikey}&s=${key}`; 
-      let movieResults = [];
-      let tvResults = [];
-      const data = await fetch(url)
+      const movieUrl =`https://api.themoviedb.org/3/search/movie?api_key=${ApiKey}&query=${encodeURIComponent(key)}`; 
+      const tvUrl =`https://api.themoviedb.org/3/search/tv?api_key=${ApiKey}&query=${encodeURIComponent(key)}`;
+
+      const tvResults = await fetch(tvUrl)
         .then(response =>response.json())
         .then(data =>{
-          return data; 
+          return data.results; 
       }).catch(err =>{
         console.error(`Something went wrong ,Try again : error ${err}`)
         throw `Something went wrong ,Try again : error ${err}`
       })
-     
-      movieResults = data.Search.filter(item => item.Type === 'movie');
-      tvResults = data.Search.filter(item => item.Type === 'series');
+
+      const movieResults = await fetch(movieUrl)
+        .then(response =>response.json())
+        .then(data =>{
+          return data.results; 
+      }).catch(err =>{
+        console.error(`Something went wrong ,Try again : error ${err}`)
+        throw `Something went wrong ,Try again : error ${err}`
+      })
+      
+      console.log(movieResults, tvResults);
+      
+
 
       function searchItems(array , containerClass){
           array.forEach(item =>{
             const searchContainer = document.querySelector(`.${containerClass}`)
             const searchItem = document.createElement('a');
             searchItem.classList.add('search-item');
-            searchItem.href = `details.html?name=${item.Title}&catagory=${item.Type}`;
+            searchItem.href = `details.html?id=${item.id}&catagory=${item.media_type || containerClass.includes('movie') ? 'movie' : 'tv'}`;
             searchItem.innerHTML = `
-              <img src="${item.Poster==='N/A' ? noImage: item.Poster }" alt="${item.Title}">
-              <h3>${item.Title}</h3>
+              <img src="${item.poster_path? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage }" alt="${item.title}">
+              <h3>${item.title || item.name}</h3>
             `
 
             searchItem.addEventListener('click', () => {
-              item.id = item.imdbID;
-              delete item.imdbID;
-              item.media_type = item.Type;
-              delete item.Type;
-              item.title = item.Title;
-              delete item.Title;
+              item.media_type = containerClass.includes('movie') ? 'movie' : 'tv';
               updateRecentlyViewed(item);
             })
             searchContainer.appendChild(searchItem)
@@ -207,6 +202,7 @@ if (recentlyViewedArry.length > 0) {
 
       setupScrollControlsFor(movieSearchGrid);
       setupScrollControlsFor(tvSearchGrid)
+      
 
     }
     

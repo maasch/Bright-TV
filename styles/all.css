@@ -8,6 +8,15 @@ a{
   color: inherit;
 }
 
+footer{
+  text-align: center;
+  padding: 1rem 0;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-family:"Ubuntu", sans-serif;
+}
+
 :root{
   --black: #000;
   --white: #fff;
