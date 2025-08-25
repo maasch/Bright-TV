@@ -179,13 +179,13 @@ function displayDetails(data){
           gtLjIzNyAxLjMyOS0uNDVzLjQ2LS41MzYuODItMS4xODJ6Ii8+PC9zdmc+" >
           <div class="rating-number">
             <span>${data.imdbRating === 'N/A'?
-              data.vote_average  ? data.vote_average : data.imdbRating
-              : data.imdbRating  ? data.imdbRating  : data.vote_average }</span> 
+              data.vote_average  ? data.vote_average.toFixed(1) : data.imdbRating
+              : data.imdbRating  ? data.imdbRating  : data.vote_average.toFixed(1) }</span> 
             /10 
             ${data.imdbRating === 'N/A'?
               data.vote_average  ? '<img class="tmdb-logo" src="images/tmdb.svg">' : ''
               : data.imdbRating  ? `
-                <svg class="imdb-logo" xmlns="http://www.w3.org/2000/svg" width="60" height="auto" viewBox="0 0 64 32" version="1.1">
+                <svg class="imdb-logo" xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 64 32" version="1.1">
                   <g fill="#F5C518">
                     <rect x="0" y="0" width="100%" height="100%" rx="4"></rect>
                   </g>
