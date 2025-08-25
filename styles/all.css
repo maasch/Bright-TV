@@ -24,3 +24,8 @@ footer{
   --red: #cc2e2e;
 }
 
+.error{
+  padding: 200px ;
+  font-size: 23px;
+  font-weight: 200;
+}

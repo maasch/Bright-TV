@@ -134,7 +134,8 @@ main{
 }
 
 .popular-item img,
-.search-item img{
+.search-item img,
+.library-item img{
   width: 100%;
  height: 300px ;
   border-radius: 10px;
@@ -142,7 +143,8 @@ main{
   display: block;
 }
 .popular-item,
-.search-item{
+.search-item,
+.library-item{
   min-width: 200px;
   max-width: 300px;
   flex:1;
@@ -153,7 +155,8 @@ main{
   }
 }
 .popular-item h3,
-.search-item h3{
+.search-item h3,
+.library-item h3{
   font-family: "Ubuntu", sans-serif;
   text-align: center;
   font-size: 14px;
