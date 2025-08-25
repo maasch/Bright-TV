@@ -27,7 +27,7 @@ const noImage ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-
         const papularItem = document.createElement('a');
         papularItem.classList.add('popular-item');
         papularItem.href =`details.html?id=${item.id}&catagory=${item.media_type}`;
-        const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage;
+        const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noImage;
         papularItem.innerHTML = `
           <img src="${imageUrl}" alt="${item.title || item.name}">
           <h3>${item.title || item.name}</h3> 
@@ -49,7 +49,7 @@ const noImage ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-
         papularItem.classList.add('popular-item');
         papularItem.href = `details.html?id=${item.id}&catagory=${item.media_type}`;
 
-        const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage;
+        const imageUrl = item.poster_path ? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noImage;
         papularItem.innerHTML = `
           <img src="${imageUrl}" alt="${item.title || item.name}">
           <h3>${item.title || item.name}</h3>
@@ -104,20 +104,38 @@ const noImage ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-
 
 
 // Display recently viewed items
-
-if (recentlyViewedArry.length > 0) {
-  recentlyViewedContainer.parentElement.style.display = 'block';
+function displayRecentlyViewed(){
+  // Clear existing items first
+  recentlyViewedContainer.innerHTML = '';
+  
+  if (recentlyViewedArry.length > 0) {
+    recentlyViewedContainer.parentElement.style.display = 'block';
     recentlyViewedArry.forEach(item => {
       const papularItem = document.createElement('a');
       papularItem.classList.add('popular-item');
       papularItem.href = `details.html?id=${item.id}&catagory=${item.media_type}`;
       papularItem.innerHTML =
-       `
-        <img src="${item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage}" alt="${item.title || item.name}">
+      `
+        <img src="${item.poster_path ? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noImage}" alt="${item.title || item.name}">
         <h3>${item.title || item.name}</h3>
       `;   
       recentlyViewedContainer.appendChild(papularItem);
-  });
+    });
+  } else {
+    // Hide the container when there are no items
+    recentlyViewedContainer.parentElement.style.display = 'none';
+  }
+}
+displayRecentlyViewed()
+
+// Clear all button
+if(recentlyViewedContainer.parentElement){
+  const clearAllBtn = document.querySelector('.clear-all');
+  clearAllBtn.addEventListener('click' , ()=>{
+    recentlyViewedArry = [];
+    localStorage.removeItem('recentlyViewed');    
+    displayRecentlyViewed()
+  })
 }
 
 
@@ -153,8 +171,6 @@ if (recentlyViewedArry.length > 0) {
         throw `Something went wrong ,Try again : error ${err}`
       })
       
-      console.log(movieResults, tvResults);
-      
 
 
       function searchItems(array , containerClass){
@@ -164,7 +180,7 @@ if (recentlyViewedArry.length > 0) {
             searchItem.classList.add('search-item');
             searchItem.href = `details.html?id=${item.id}&catagory=${item.media_type || containerClass.includes('movie') ? 'movie' : 'tv'}`;
             searchItem.innerHTML = `
-              <img src="${item.poster_path? `https://image.tmdb.org/t/p/w500${item.poster_path}` : noImage }" alt="${item.title}">
+              <img src="${item.poster_path? `https://image.tmdb.org/t/p/w780${item.poster_path}` : noImage }" alt="${item.title}">
               <h3>${item.title || item.name}</h3>
             `
 
