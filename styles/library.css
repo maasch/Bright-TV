@@ -12,6 +12,23 @@
   font-size: 24px;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .library-title {
+    font-size: 22px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .library-title {
+    font-size: 20px;
+    order: 2;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
 .library-grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -19,6 +36,24 @@
   padding: 16px;
   position: relative;
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .library-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .library-grid{
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    gap: 10px;
+  }
+}
+
 main:has(.error) {
   display: flex;
   align-items: center;
@@ -52,6 +87,26 @@ main:has(.error) {
   box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .delete-btn {
+    width: 32px;
+    height: 32px;
+    top: 6px;
+    right: 6px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .delete-btn {
+    width: 28px;
+    height: 28px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
 .delete-btn:hover{
   background: rgba(220, 53, 69, 0.4);
   transform: scale(1.1);
@@ -60,6 +115,14 @@ main:has(.error) {
 
 .delete-btn svg {
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .delete-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .library-grid a:hover .delete-btn{
@@ -75,5 +138,99 @@ main:has(.error) {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Additional responsive improvements for library page */
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  main {
+    padding: 10px;
+  }
+  
+  .link button {
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive home icon sizing */
+@media (max-width: 768px) {
+  .home-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .home-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Very small screen breakpoint */
+@media (max-width: 320px) {
+  .library-title {
+    font-size: 18px;
+    margin-top: 8px;
+  }
+  
+  .library-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 4px;
+  }
+  
+  .delete-btn {
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    right: 4px;
+  }
+  
+  .delete-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .link button {
+    padding: 4px;
+    font-size: 13px;
+  }
+  
+  .home-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .library-title {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  
+  .library-grid {
+    gap: 12px;
+    padding: 8px;
+  }
+  
+  .delete-btn {
+    width: 26px;
+    height: 26px;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .delete-btn svg {
+    width: 15px;
+    height: 15px;
   }
 }

@@ -12,26 +12,72 @@ header{
   align-items: center;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  header {
+    margin: 8px 20px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  header {
+    margin: 5px 15px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .bright-mobile {
+    align-self: center;
+  }
+  
+  /* Ensure the logo container is centered */
+  header > a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 #logo{
   border-radius: 10px;
   max-width: 200px;
   height: auto;
 }
+
 @media (max-width: 768px) {
   #logo{
     max-width: 150px;
   }
 }
+
 @media (max-width: 450px) {
   #logo{
     max-width: 120px;
   }
 }
+
 .search-container{
   display: flex;
   width: 30%;
   align-items: center;
   position: relative;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .search-container {
+    width: 40%;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .search-container {
+    width: 100%;
+    order: 2;
+  }
 }
 
 #search-input{
@@ -49,6 +95,15 @@ header{
     outline: 1px white solid;
   }
 }
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  #search-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
 #search-button{
   background-color: var(--black);
   backdrop-filter: blur(5px);
@@ -66,7 +121,14 @@ header{
   &:active{
     opacity: 0.5;
   }
+}
 
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  #search-button {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 #search-img{
@@ -78,12 +140,30 @@ header{
   height: 25px;
 }
 
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  #search-img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .right-section{
   font-family: "Ubuntu", sans-serif;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .right-section {
+    order: 1;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
 .library{
   font-family: "Ubuntu", sans-serif;
   padding: 10px 10px;
@@ -93,10 +173,28 @@ header{
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
   &:hover{
     background-color: #232323;
   }
 }
+
+.library-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .library {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
 .profile{
   background-color: var(--black);
   width: 36px;
@@ -107,5 +205,84 @@ header{
   transition: all 0.3s ease-in-out;
   &:hover{
     background-color: #232323;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .profile {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Very small screen breakpoint */
+@media (max-width: 320px) {
+  header {
+    margin: 3px 10px;
+    gap: 12px;
+  }
+  
+  #logo {
+    max-width: 100px;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  #search-input {
+    font-size: 13px;
+    padding: 6px;
+  }
+  
+  #search-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  #search-img {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .library {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .profile {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    margin: 5px 15px;
+    gap: 10px;
+  }
+  
+  #logo {
+    max-width: 120px;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .right-section {
+    gap: 8px;
+  }
+  
+  .library {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+  
+  .profile {
+    width: 30px;
+    height: 30px;
   }
 }

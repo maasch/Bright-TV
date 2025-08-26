@@ -17,6 +17,22 @@ footer{
   font-family:"Ubuntu", sans-serif;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  footer {
+    padding: 0.8rem 0;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  footer {
+    padding: 0.6rem 0;
+    font-size: 0.75rem;
+  }
+}
+
 :root{
   --black: #000;
   --white: #fff;
@@ -29,3 +45,86 @@ footer{
   font-size: 23px;
   font-weight: 200;
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .error {
+    padding: 150px;
+    font-size: 20px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .error {
+    padding: 100px 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.bright-mobile {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .bright-pc{
+    display: none;
+  }
+
+  .bright-mobile {
+    display: block;
+    width: 40px;
+  }
+}
+
+/* Additional responsive utilities */
+@media (max-width: 768px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Responsive text utilities */
+@media (max-width: 768px) {
+  .text-tablet-sm {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 425px) {
+  .text-mobile-sm {
+    font-size: 0.8em;
+  }
+  
+  .text-mobile-xs {
+    font-size: 0.7em;
+  }
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 768px) {
+  .spacing-tablet-sm {
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .spacing-mobile-sm {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .spacing-mobile-xs {
+    gap: 8px;
+    padding: 8px;
+  }
+}
+

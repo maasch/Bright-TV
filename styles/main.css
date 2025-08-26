@@ -68,6 +68,38 @@ main{
   scrollbar-width: none;
   padding: 16px;
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .movie-popular-grid,
+  .tv-popular-grid,
+  .recently-viewed-grid,
+  .movie-search-grid,
+  .tv-search-grid{
+    gap: 15px;
+    padding: 12px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .movie-popular-grid,
+  .tv-popular-grid,
+  .recently-viewed-grid,
+  .movie-search-grid,
+  .tv-search-grid{
+    gap: 10px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 425px) {
+  .recently-viewed-grid
+  {
+    padding-top: 16px;
+  }
+}
+
 .scroll-right{
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
@@ -84,12 +116,46 @@ main{
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .scroll-right{
+    height: 50px;
+    right: 8px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .scroll-right{
+    height: 40px;
+    right: 5px;
+  }
+}
+
 .scroll-right img{
   width: 60px;
   height: 60px;
   filter: invert(1);
   opacity: 0.7;
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .scroll-right img{
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .scroll-right img{
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .scroll-left{
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -107,11 +173,44 @@ main{
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .scroll-left{
+    height: 50px;
+    left: 15px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .scroll-left{
+    height: 40px;
+    left: 10px;
+  }
+}
+
 .scroll-left img{
   width: 60px;
   height: 60px;
   filter: invert(1);
   opacity: 0.7;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .scroll-left img{
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .scroll-left img{
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .clear-all{
@@ -133,6 +232,15 @@ main{
   }
 }
 
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .clear-all{
+    font-size: 14px;
+    padding: 4px 6px;
+    right: 10px;
+  }
+}
+
 .popular-item img,
 .search-item img,
 .library-item img{
@@ -142,6 +250,25 @@ main{
   object-fit: cover;
   display: block;
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .popular-item img,
+  .search-item img,
+  .library-item img{
+    height: 250px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .popular-item img,
+  .search-item img,
+  .library-item img{
+    height: 200px;
+  }
+}
+
 .popular-item,
 .search-item,
 .library-item{
@@ -154,6 +281,29 @@ main{
     transform: scale(1.05);
   }
 }
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .popular-item,
+  .search-item,
+  .library-item{
+    min-width: 150px;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 425px) {
+  .popular-item,
+  .search-item,
+  .library-item{
+    min-width: 100px;
+    max-width: 200px;
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+}
+
 .popular-item h3,
 .search-item h3,
 .library-item h3{
@@ -167,9 +317,152 @@ main{
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .popular-item h3,
+  .search-item h3,
+  .library-item h3{
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .popular-item h3,
+  .search-item h3,
+  .library-item h3{
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
 .recently-viewed-grid .popular-item,
 .movie-search-grid .search-item,
 .tv-search-grid .search-item{
   min-width: none;
   max-width: 200px;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 768px) {
+  .recently-viewed-grid .popular-item,
+  .movie-search-grid .search-item,
+  .tv-search-grid .search-item{
+    max-width: 180px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 425px) {
+  .recently-viewed-grid .popular-item,
+  .movie-search-grid .search-item,
+  .tv-search-grid .search-item{
+    max-width: 150px;
+  }
+}
+
+/* Additional responsive improvements */
+@media (max-width: 768px) {
+  main {
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  .popular h2,
+  .recently-viewed h2,
+  .movie-search h2,
+  .tv-search h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 425px) {
+  main {
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .popular h2,
+  .recently-viewed h2,
+  .movie-search h2,
+  .tv-search h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Very small screen breakpoint */
+@media (max-width: 320px) {
+  main {
+    padding: 8px;
+    gap: 12px;
+  }
+  
+  .popular h2,
+  .recently-viewed h2,
+  .movie-search h2,
+  .tv-search h2 {
+    font-size: 1.1rem;
+  }
+  
+  .movie-popular-grid,
+  .tv-popular-grid,
+  .recently-viewed-grid,
+  .movie-search-grid,
+  .tv-search-grid {
+    gap: 8px;
+    padding: 6px;
+  }
+  
+  .popular-item,
+  .search-item,
+  .library-item {
+    min-width: 80px;
+    max-width: 150px;
+  }
+  
+  .popular-item img,
+  .search-item img,
+  .library-item img {
+    height: 180px;
+  }
+  
+  .scroll-right,
+  .scroll-left {
+    height: 35px;
+  }
+  
+  .scroll-right img,
+  .scroll-left img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  main {
+    padding: 8px;
+    gap: 10px;
+  }
+  
+  .popular h2,
+  .recently-viewed h2,
+  .movie-search h2,
+  .tv-search h2 {
+    font-size: 1.1rem;
+  }
+  
+  .popular-item img,
+  .search-item img,
+  .library-item img {
+    height: 150px;
+  }
+  
+  .popular-item h3,
+  .search-item h3,
+  .library-item h3 {
+    font-size: 11px;
+    padding: 4px;
+  }
 }
