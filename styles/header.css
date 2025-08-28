@@ -126,8 +126,9 @@ header{
 /* Mobile breakpoint */
 @media (max-width: 425px) {
   #search-button {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    border-radius: calc(28px / 2);
   }
 }
 

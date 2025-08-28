@@ -48,13 +48,17 @@ async function fetchDetails(category, id) {
       const extraData = await fetch(url)
       .then(respone => respone.json())
       .then(data => {
+        let actors ;
+        if(data.Actors){
+          actors = data.Actors.split(',').map((actor ,index) =>({
+            id: index + 1,
+            name: actor.trim()
+          }));
+        }
         return {
-           actors : data.Actors.split(',').map((actor ,index) =>({
-             id: index + 1,
-             name: actor.trim()
-           })),
-           director : data.Director ,
-           writer : data.Writer , 
+           actors: actors,
+           director: data.Director,
+           writer: data.Writer,
            runtimeOmd :data.Runtime,
            imdbRating : data.imdbRating,
            year :data.Year
@@ -88,6 +92,7 @@ async function fetchDetails(category, id) {
     }catch(error){
       console.error('Error fetching details:', error);
     }
+
   displayDetails(data);
 
   
@@ -229,7 +234,10 @@ function displayDetails(data){
         :
          'none'};">
           <h3>Cast</h3>
-          <div class="actors">${data.actors.map(actor =>{return `<div class="actor">${actor.name}</div>`}).join('')}</div>
+          <div class="actors">${data.actors?
+            data.actors.map(actor =>{return `<div class="actor">${actor.name}</div>`}).join(''):
+            ''
+          }</div>
       </div>
 
       <div class="director" style="display :${data.director ? 'block' :'none'};">
