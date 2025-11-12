@@ -1,5 +1,7 @@
 # Bright TV
 
+![Bright TV logo](/images/logoblack.png)
+
 A modern, responsive web application for browsing and discovering movies and TV shows. Bright TV provides an intuitive interface to explore popular content, search for titles, view detailed information, and manage your personal library.
 
 ## Features
@@ -72,17 +74,21 @@ Bright TV/
 3. Serve the files using a local web server:
 
    **Using Python:**
+
    ```bash
    python -m http.server 8000
    ```
+
    Then navigate to `http://localhost:8000`
 
    **Using Node.js (http-server):**
+
    ```bash
    npx http-server
    ```
 
    **Using PHP:**
+
    ```bash
    php -S localhost:8000
    ```
@@ -117,7 +123,7 @@ Bright TV/
 
 - **Add to Library**: Click the "Add to library" button on any details page
 - **View Library**: Click the "Library" button in the header
-- **Remove from Library**: 
+- **Remove from Library**:
   - Click the delete button on any item in your library, or
   - Use the "Remove from library" button on the details page
 
@@ -130,6 +136,7 @@ Bright TV/
 ## Data Storage
 
 The application uses browser `localStorage` to persist:
+
 - **Library items**: Your saved movies and TV shows
 - **Recently viewed**: Your viewing history
 
@@ -215,4 +222,3 @@ Potential features for future development:
 ---
 
 © 2024 Bright TV
-
